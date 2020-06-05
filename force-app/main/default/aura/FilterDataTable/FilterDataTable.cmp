@@ -1,0 +1,44 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global"
+    controller="DataTableController">
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/> 
+    
+    <!-- get account and set column table -->
+    <aura:attribute type="Account[]" name="acctList"/>
+    <aura:attribute name="acctColumns" type="List"/>
+
+    <!-- get all list view in account -->
+    <aura:attribute name="listViewResult" type="string[]"/>
+
+    <!-- get value in lightning:select -->
+    <aura:attribute name="testval" type="String"/>
+
+    
+    <lightning:workspaceAPI aura:id="workspace" />
+    <lightning:layoutItem padding="around-small">
+
+        <!-- select filter -->
+        <div class="slds-form-element">
+            <lightning:select name="selectChange"
+                onchange="{!c.selectChange}"
+                class="customCls" 
+                value="{!v.testval}">
+                <aura:iteration items="{!v.listViewResult}" var="item">
+                    <option value="{!item.developerName}">{!item.label}</option>
+                </aura:iteration> 
+            </lightning:select>
+        </div>
+
+        <!-- Data table -->
+        <lightning:card title="Data Table" iconName="standard:account">
+            <lightning:datatable 
+                data="{!v.acctList}"
+                columns="{!v.acctColumns}"
+                keyField="id"
+                hideCheckBoxColumn="true" 
+                showRowNumberColumn="true"
+                onrowaction="{!c.openSubtabAccountDetails}"/>
+        </lightning:card>
+     
+    </lightning:layoutItem>
+</aura:component>	

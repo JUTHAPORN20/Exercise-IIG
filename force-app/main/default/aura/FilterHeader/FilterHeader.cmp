@@ -1,0 +1,15 @@
+<aura:component>
+    <!-- PAGE HEADER -->
+    <lightning:layout class="slds-page-header slds-page-header--object-home" >
+        <lightning:layoutItem>
+            <lightning:icon iconName="action:goal" alternativeText="Exercise 01"/>
+        </lightning:layoutItem>
+        <lightning:layoutItem padding="horizontal-small">
+            <div class="page-section page-header">
+                <h1 class="slds-text-heading--label">Filter System</h1>
+                <h2 class="slds-text-heading--medium">Exercise: Filter custom system</h2>
+            </div>
+        </lightning:layoutItem>
+    </lightning:layout>
+    <!-- / PAGE HEADER -->
+</aura:component>

@@ -1,0 +1,13 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global"
+    controller="PareController">
+
+    <aura:handler name="init" value="this" action="{!c.doInit}"/>
+    <aura:attribute name="objectInfo" type="string" default="Lead"/>
+
+    <lightning:listView 
+        objectApiName="{!v.objectInfo}"
+        rows="5"
+        showSearchBar="true"
+        showActionBar="false"
+        enableInlineEdit="true"/>
+</aura:component>	

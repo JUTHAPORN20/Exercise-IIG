@@ -1,0 +1,29 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId" access="global"
+                controller="AccountPicture">
+
+    <!-- Id of the Record the page hosting this component is showing -->
+    <aura:attribute name="recordId" type="Id"/>
+
+    <aura:attribute name="pictureSrc" type="String"
+            default="https://s3-us-west-1.amazonaws.com/sfdc-demo/image-placeholder.png"/>
+    
+    <aura:attribute name="message" type="String" default="Drag profile picture here"/>
+ 
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}" /> 
+
+    <div class="c-container">
+        <!--Picture Account Form-->
+        <lightning:layoutItem>
+            <!--Show Pic-->
+            <div class="page-section page-main">
+                <div ondragover="{!c.onDragOver}" ondrop="{!c.onDrop}">
+                    <lightning:card title="Picture Account" iconName="standard:photo">
+                        <img src="{!v.pictureSrc}"/>
+                        <p style="text-align: center;">{!v.message}</p>
+                    </lightning:card>   
+                </div>
+            </div>
+        </lightning:layoutItem>
+    </div>
+
+</aura:component>

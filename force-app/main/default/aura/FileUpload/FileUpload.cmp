@@ -1,0 +1,18 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId" access="global">
+    <!--Attribute-->
+    <aura:attribute name="filetype" type="List" default="['.png', '.jpg', '.jpeg']" />
+    <aura:attribute name="multiple" type="Boolean" default="true" />
+    <aura:attribute name="disabled" type="Boolean" default="true" />
+    <aura:attribute name="recordId" type="String" />
+    
+    <!--Upload Form-->
+    <lightning:card>
+        <lightning:fileUpload 
+            style="text-align: center;"
+            name="fileUploader"
+            multiple="true"
+            accept="{!v.filetype}"
+            recordId="{!v.recordId}"
+            onuploadfinished="{!c.handleUploadFinished}"/>
+    </lightning:card>
+</aura:component>
